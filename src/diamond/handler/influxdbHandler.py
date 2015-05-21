@@ -185,6 +185,7 @@ class InfluxdbHandler(Handler):
                             metrics.append({
                                 "name": path,
                                 "timestamp": self.batch[path][0][0],
+                                "precision": self.time_precision,
                                 "fields": {"value": self.batch[path][0][1]}})
                     # Send data to influxdb
                     self.log.debug("InfluxdbHandler: writing %d series of data",
